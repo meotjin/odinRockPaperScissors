@@ -1,5 +1,8 @@
 let options = ['rock', 'paper', 'scissors'];
 
+let userScore = 0,
+    computerScore = 0;
+
 function getComputerChoice(){
     let randomNum = Math.floor(Math.random()*3);
     return options[randomNum];
@@ -14,14 +17,24 @@ function winner(playerSelection, computerSelection) {
         case '11':
         case '22':
             return `Draw! both players chose ${playerSelection}.`;
-            break;
         case '02':
         case '10':
         case '21':
+            userScore++;
             return `You Won! ${playerSelection} beats ${computerSelection}.`;
-            break;
         default:
-            return `You Lost :(! ${computerSelection} beats ${playerSelection}.`;
-            break;
+            computerScore++;
+            return `You Lost :(! ${computerSelection} beats ${playerSelection}.`;   
     }
 }
+
+
+function game(){
+    for (let index = 0; index < 5; index++) {
+        console.log(winner(prompt("rock/paper or scissors?"), getComputerChoice()));
+    }
+    console.log(`user score: ${userScore}\ncomputer score: ${computerScore}`);
+    console.log(userScore>computerScore ? "you won! congrats!" : userScore < computerScore ? "you lost :( try again!" : "Draw!");
+}
+
+game();
