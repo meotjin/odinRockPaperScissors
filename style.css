@@ -36,7 +36,8 @@ html body {
 	gap: 30px;
 }
 
-.game-button {
+.player-button,
+.computer-button {
 	font-size: 36px;
 	background-color: olivedrab;
 	color: white;
